@@ -13,13 +13,17 @@ class SearchBox extends React.Component {
         super(props);
     }
 
+    //Permet d'enregister dans le state les modifications effectures dans la barre de recherche.
     updateSearch = search => {
         this.setState({ search });
     };
 
     render() {
+        
+        //Assignation de la variable search au state.
         const { search } = this.state;
         
+        //Affichage de la vue.
         return (
             <View  style={styles.container}>
             <SearchBar
@@ -35,6 +39,7 @@ class SearchBox extends React.Component {
 
 }
 
+//Stylisage du composant.
 const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',

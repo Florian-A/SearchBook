@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import SearchBox from '../components/SearchBox';
 import { ThemeProvider } from 'react-native-elements';
 
@@ -13,6 +13,7 @@ class Home extends React.Component {
         super(props);
     }
 
+    //Affichage de la vue avec definition du style.
     render() {
         return (
             <ThemeProvider>
@@ -22,6 +23,7 @@ class Home extends React.Component {
                 <Text style={[styles.presentationText,{ fontSize: 16,}]}>Vous pouvez rechercher un livre par son nom.</Text>
                 </View>
                 <SearchBox></SearchBox>
+                <Button title="test" onPress={ () => this.props.navigation.navigate("Test")}></Button>
             </View>
             </ThemeProvider>     
         )
@@ -29,6 +31,7 @@ class Home extends React.Component {
 
 }
 
+//Stylisage du composant.
 const styles = StyleSheet.create({
     container: {
       backgroundColor: '#F5FCFF',
