@@ -5,23 +5,24 @@ import { SearchBar } from 'react-native-elements';
 class SearchBox extends React.Component {
     
     state = {
-        search: '',
+        searchName: null,
     };
 
-    constructor(props)
+    constructor()
     {
-        super(props);
+        super();
     }
 
-    //Permet d'enregister dans le state les modifications effectures dans la barre de recherche.
-    updateSearch = search => {
-        this.setState({ search });
+    //Permet d'enregister dans le state les modifications effectues dans la barre de recherche ainsi que de les passer au composant parent.
+    updateSearch = searchName => {
+        this.setState({ searchName });
+        this.props.updateState(this.state);
     };
 
     render() {
         
         //Assignation de la variable search au state.
-        const { search } = this.state;
+        const { searchName } = this.state;
         
         //Affichage de la vue.
         return (
@@ -30,7 +31,7 @@ class SearchBox extends React.Component {
             placeholder="Entrez le nom d'un livre" lightTheme="true" 
             containerStyle={styles.searchBarContainer}
             onChangeText={this.updateSearch}
-            value={search}
+            value={searchName}
           />
           </View>
      

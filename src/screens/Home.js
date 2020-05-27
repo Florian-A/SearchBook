@@ -5,12 +5,19 @@ import { ThemeProvider } from 'react-native-elements';
 
 class Home extends React.Component {
     
-    state = {
-    };
-
-    constructor(props)
+    constructor()
     {
-        super(props);
+      super();
+      this.state = {
+          searchName:null
+      };
+    }
+
+    //Permet de mettre a jours le state actuel depuis un composant enfant.
+    updateFromChildState = (state) => {
+      this.setState({
+          searchName: state.searchName,
+      });
     }
 
     //Affichage de la vue avec definition du style.
@@ -22,8 +29,8 @@ class Home extends React.Component {
                 <Text style={[styles.presentationText,{ fontSize: 20,}]} >Bienvenue dans Livre pour les Enfants !</Text>
                 <Text style={[styles.presentationText,{ fontSize: 16,}]}>Vous pouvez rechercher un livre par son nom.</Text>
                 </View>
-                <SearchBox></SearchBox>
-                <Button title="test" onPress={ () => this.props.navigation.navigate("Test")}></Button>
+                <SearchBox updateState={this.updateFromChildState}></SearchBox>
+                <Button title="Rechercher" onPress={ () => this.props.navigation.navigate("Test",  {params: { searchName: this.state.searchName } })}></Button>
             </View>
             </ThemeProvider>     
         )
