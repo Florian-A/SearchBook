@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from './src/screens/Home';
-import Test from './src/screens/Test';
+import BookList from './src/screens/BookList';
 
 //Assigne l'object qui fournit un moyen pour lapplication de faire la transition entre les écrans.
 const Stack = createStackNavigator();
@@ -14,7 +14,7 @@ export default function App() {
     <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen name="Livre pour les enfants" component={Home} />
-      <Stack.Screen name="Test" component={Test} />
+      <Stack.Screen name="BookList" options={{title: 'Liste des livres',}} component={BookList} />
     </Stack.Navigator>
   </NavigationContainer>
   );

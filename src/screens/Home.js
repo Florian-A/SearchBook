@@ -30,7 +30,7 @@ class Home extends React.Component {
                 <Text style={[styles.presentationText,{ fontSize: 16,}]}>Vous pouvez rechercher un livre par son nom.</Text>
                 </View>
                 <SearchBox updateState={this.updateFromChildState}></SearchBox>
-                <Button title="Rechercher" onPress={ () => this.props.navigation.navigate("Test",  {params: { searchName: this.state.searchName } })}></Button>
+                <Button title="Rechercher" onPress={ () => this.props.navigation.navigate("BookList",  {params: { searchName: this.state.searchName } })}></Button>
             </View>
             </ThemeProvider>     
         )
