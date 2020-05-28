@@ -53,7 +53,7 @@ class BookList extends React.Component {
           <View>
             {
                 this.state.datas.items.map((book, i) => (
-                  <ListItem key={i} title={book.volumeInfo.title} subtitle={'Editeur: '+book.volumeInfo.publisher +' Publication: '+ book.volumeInfo.publishedDate}  bottomDivider />
+                  <ListItem key={i} onPress={() => alert(book.id)} title={book.volumeInfo.title} subtitle={'Editeur: '+book.volumeInfo.publisher +' Publication: '+ book.volumeInfo.publishedDate}  bottomDivider />
                 ))
             }
           </View>
@@ -84,7 +84,6 @@ class BookList extends React.Component {
 //Stylisage du composant.
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#F5FCFF',
     },
   });
 

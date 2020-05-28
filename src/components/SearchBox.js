@@ -4,19 +4,26 @@ import { SearchBar } from 'react-native-elements';
 
 class SearchBox extends React.Component {
     
-    state = {
-        searchName: null,
-    };
 
     constructor()
     {
         super();
+        this.state = {
+            searchName: null,
+        };
+    
     }
 
     //Permet d'enregister dans le state les modifications effectues dans la barre de recherche ainsi que de les passer au composant parent.
     updateSearch = searchName => {
         this.setState({ searchName });
         this.props.updateState(this.state);
+    };
+
+    //Permet de lancer la recherche apres validation de la barre de recherche (SearchBar)
+    sendSearch = searchName => {
+        this.setState({ searchName });
+        this.props.navigateToBookList(this.state.searchName);
     };
 
     render() {
@@ -30,8 +37,11 @@ class SearchBox extends React.Component {
             <SearchBar
             placeholder="Entrez le nom d'un livre" lightTheme="true" 
             containerStyle={styles.searchBarContainer}
+            inputContainerStyle={styles.searchBarInputContainer}
             onChangeText={this.updateSearch}
             value={searchName}
+            onSubmitEditing={this.sendSearch}
+
           />
           </View>
      
@@ -48,9 +58,17 @@ const styles = StyleSheet.create({
         width: '90%',
     },
     searchBarContainer: {
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#F2F2F2',
         borderTopWidth: 0,
         borderBottomWidth: 0,
+    },
+    searchBarInputContainer: {
+        backgroundColor: '#FFF',
+        borderColor: '#909293',
+        borderStyle:"solid",
+        borderWidth: 1,
+        borderBottomWidth: 1
+
     }
   });
 
