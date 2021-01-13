@@ -13,13 +13,10 @@ class Home extends React.Component {
       };
     }
 
-    //Permet de mettre a jours le state actuel depuis un composant enfant.
-    updateFromChildState = (state) => {
-      this.setState({
-          searchName: state.searchName,
-      });
+    updateSearchName = (text) => {
+      this.setState({ searchName: text })
     }
-
+    
     navigateToBookList = (searchName) => {
       this.props.navigation.navigate("BookList",  {params: { searchName: searchName } })
     }
@@ -33,7 +30,7 @@ class Home extends React.Component {
                 <Text style={[styles.presentationText,{ fontSize: 20,}]} >Bienvenue dans Livre pour les Enfants !</Text>
                 <Text style={[styles.presentationText,{ fontSize: 16,}]}>Vous pouvez rechercher un livre par son nom.</Text>
                 </View>
-                <SearchBox updateState={this.updateFromChildState} navigateToBookList={this.navigateToBookList}></SearchBox>
+                <SearchBox onChangeText={this.updateSearchName} onSubmitEditing={this.navigateToBookList} value={this.state.searchName} ></SearchBox>
                 <Button buttonStyle={styles.searchButton} title="Rechercher" onPress={ () => this.navigateToBookList(this.state.searchName) }></Button>
             </View>
             </ThemeProvider>     
