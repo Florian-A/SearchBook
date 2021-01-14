@@ -1,4 +1,5 @@
 import React from 'react';
+import { KeyboardAvoidingView } from 'react-native';
 import { StyleSheet, View } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 
@@ -27,15 +28,14 @@ function SearchBox(props) {
 
     return (
         <View style={styles.view}>
-            <SearchBar
-                placeholder="Entrez le nom d'un livre"
-                lightTheme="true"
-                containerStyle={styles.searchBarContainer}
-                inputContainerStyle={styles.searchBarInputContainer}
-                onChangeText={props.onChangeText}
-                value={props.value}
-                onSubmitEditing={props.onSubmitEditing}
-            />
+                <SearchBar
+                    placeholder="Entrez le nom d'un livre"
+                    lightTheme="true"
+                    containerStyle={styles.searchBarContainer}
+                    inputContainerStyle={styles.searchBarInputContainer}
+                    onChangeText={props.onChangeText}
+                    value={props.value}
+                />
         </View>
     )
 }

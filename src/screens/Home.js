@@ -1,51 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { ThemeProvider, Button } from 'react-native-elements';
 import SearchBox from '../components/SearchBox';
 
-class Home extends React.Component {
-    
-    constructor()
-    {
-      super();
-      this.state = {
-          searchName:null
-      };
-    }
+function Home(props) {
 
-    updateSearchName = (text) => {
-      this.setState({ searchName: text })
-    }
-    
-    navigateToBookList = (searchName) => {
-      this.props.navigation.navigate("BookList",  {params: { searchName: searchName } })
-    }
+  const [searchText, setSearchText] = useState();
 
-    //Affichage de la vue avec definition du style.
-    render() {
-        return (
-            <ThemeProvider>
-            <View style={styles.container}>
-                <View style={styles.presentation}>
-                <Text style={[styles.presentationText,{ fontSize: 20,}]} >Bienvenue dans Livre pour les Enfants !</Text>
-                <Text style={[styles.presentationText,{ fontSize: 16,}]}>Vous pouvez rechercher un livre par son nom.</Text>
-                </View>
-                <SearchBox onChangeText={this.updateSearchName} onSubmitEditing={this.navigateToBookList} value={this.state.searchName} ></SearchBox>
-                <Button buttonStyle={styles.searchButton} title="Rechercher" onPress={ () => this.navigateToBookList(this.state.searchName) }></Button>
-            </View>
-            </ThemeProvider>     
-        )
-    }
+  navigateToBookList = (text) => {
+    props.navigation.navigate("BookList", { params: { searchName: text } })
+  }
 
-}
-
-//Stylisage du composant.
-const styles = StyleSheet.create({
+  const styles = StyleSheet.create({
     container: {
       justifyContent: 'center',
       alignItems: 'center',
-      flex:1,
-      marginTop: -120 
+      flex: 1,
+      marginTop: -120
     },
     presentation: {
       padding: 30,
@@ -53,6 +24,7 @@ const styles = StyleSheet.create({
     presentationText: {
       marginBottom: 10,
       textAlign: "center",
+      fontSize: 20,
     },
     searchButton: {
       marginTop: 10,
@@ -60,5 +32,19 @@ const styles = StyleSheet.create({
       paddingRight: 15,
     }
   });
+
+  return (
+    <ThemeProvider>
+      <View style={styles.container}>
+        <View style={styles.presentation}>
+          <Text style={[styles.presentationText]} >Bienvenue dans Livre pour les Enfants !</Text>
+          <Text style={[styles.presentationText, { fontSize: 16, }]}>Vous pouvez rechercher un livre par son nom.</Text>
+        </View>
+        <SearchBox onChangeText={setSearchText} onSubmitEditing={navigateToBookList} value={searchText} ></SearchBox>
+        <Button buttonStyle={styles.searchButton} title="Rechercher" onPress={() => navigateToBookList(searchText)}></Button>
+      </View>
+    </ThemeProvider >
+  )
+}
 
 export default Home;
