@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, ScrollView } from 'react-native';
 import { ThemeProvider, ListItem } from 'react-native-elements';
-//import { CirclesLoader } from 'react-native-indicator';
 
 function BookList(props) {
 
@@ -41,7 +40,15 @@ function BookList(props) {
         <View>
           {
             datas.items.map((book, i) => (
-              <ListItem key={i} onPress={() => alert(book.id)} title={book.volumeInfo.title} subtitle={'Editeur: ' + book.volumeInfo.publisher + ' Publication: ' + book.volumeInfo.publishedDate} bottomDivider />
+
+              <ListItem key={i} bottomDivider>
+                <ListItem.Content>
+                  <ListItem.Title>{book.volumeInfo.title}</ListItem.Title>
+                  <ListItem.Subtitle>{'Editeur: ' + book.volumeInfo.publisher + ' Publication: ' + book.volumeInfo.publishedDate}</ListItem.Subtitle>
+                </ListItem.Content>
+              </ListItem>
+
+
             ))
           }
         </View>

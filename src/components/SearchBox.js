@@ -30,7 +30,6 @@ function SearchBox(props) {
         <View style={styles.view}>
                 <SearchBar
                     placeholder="Entrez le nom d'un livre"
-                    lightTheme="true"
                     containerStyle={styles.searchBarContainer}
                     inputContainerStyle={styles.searchBarInputContainer}
                     onChangeText={props.onChangeText}

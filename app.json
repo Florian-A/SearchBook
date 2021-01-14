@@ -1,15 +1,10 @@
 {
-  "name": "book-for-kids",
-  "displayName": "book-for-kids",
+  "name": "search-book",
+  "displayName": "search-book",
   "expo": {
-    "name": "book-for-kids",
+    "name": "search-book",
     "slug": "expo-template-bare",
     "version": "1.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
     "assetBundlePatterns": [
       "**/*"
     ]
