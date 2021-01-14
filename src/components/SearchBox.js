@@ -1,7 +1,9 @@
 import React from 'react';
-import { KeyboardAvoidingView } from 'react-native';
 import { StyleSheet, View } from 'react-native';
 import { SearchBar } from 'react-native-elements';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { updateSearchText } from "../actions/bookAction";
 
 function SearchBox(props) {
 
@@ -28,15 +30,27 @@ function SearchBox(props) {
 
     return (
         <View style={styles.view}>
-                <SearchBar
-                    placeholder="Entrez le nom d'un livre"
-                    containerStyle={styles.searchBarContainer}
-                    inputContainerStyle={styles.searchBarInputContainer}
-                    onChangeText={props.onChangeText}
-                    value={props.value}
-                />
+            <SearchBar
+                placeholder="Entrez le nom d'un livre"
+                containerStyle={styles.searchBarContainer}
+                inputContainerStyle={styles.searchBarInputContainer}
+                onChangeText={props.updateSearchText}
+                value={props.searchText}
+            />
         </View>
     )
 }
 
-export default SearchBox;
+const mapStateToProps = (state) => {
+    return {
+        searchText: state.searchText,
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(
+        { updateSearchText }, dispatch
+    )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBox)

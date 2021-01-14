@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, ScrollView, Image } from 'react-native';
 import { ThemeProvider, ListItem } from 'react-native-elements';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 function BookList(props) {
 
@@ -59,7 +61,8 @@ function BookList(props) {
       )
     }
     else {
-      getDatas(props.route.params.params.searchName);
+      console.log(props)
+      getDatas(props.searchText);
     }
   }
 
@@ -75,4 +78,16 @@ function BookList(props) {
 
 }
 
-export default BookList;
+const mapStateToProps = (state) => {
+  return {
+      searchText: state.searchText,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+      { }, dispatch
+  )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookList)

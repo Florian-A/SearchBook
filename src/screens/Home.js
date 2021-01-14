@@ -40,7 +40,7 @@ function Home(props) {
           <Text style={[styles.presentationText]} >Bienvenue !</Text>
           <Text style={[styles.presentationText, { fontSize: 16, }]}>Vous pouvez rechercher un livre par son nom.</Text>
         </View>
-        <SearchBox onChangeText={setSearchText} onSubmitEditing={navigateToBookList} value={searchText} ></SearchBox>
+        <SearchBox />
         <Button buttonStyle={styles.searchButton} title="Rechercher" onPress={() => navigateToBookList(searchText)}></Button>
       </View>
     </ThemeProvider >
