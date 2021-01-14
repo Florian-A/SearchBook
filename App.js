@@ -12,7 +12,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Livre pour les enfants" component={Home} />
+        <Stack.Screen name="Recherche de livres" component={Home} />
         <Stack.Screen name="BookList" options={{ title: 'Liste des livres', }} component={BookList} />
       </Stack.Navigator>
     </NavigationContainer>

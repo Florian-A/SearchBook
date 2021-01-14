@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Image } from 'react-native';
 import { ThemeProvider, ListItem } from 'react-native-elements';
 
 function BookList(props) {
@@ -42,6 +42,10 @@ function BookList(props) {
             datas.items.map((book, i) => (
 
               <ListItem key={i} bottomDivider>
+                <Image
+                  source={{ uri: book.volumeInfo.imageLinks.thumbnail }}
+                  style={{ width: 50, height: 50 }}
+                />
                 <ListItem.Content>
                   <ListItem.Title>{book.volumeInfo.title}</ListItem.Title>
                   <ListItem.Subtitle>{'Editeur: ' + book.volumeInfo.publisher + ' Publication: ' + book.volumeInfo.publishedDate}</ListItem.Subtitle>

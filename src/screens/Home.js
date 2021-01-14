@@ -37,7 +37,7 @@ function Home(props) {
     <ThemeProvider>
       <View style={styles.container}>
         <View style={styles.presentation}>
-          <Text style={[styles.presentationText]} >Bienvenue dans Livre pour les Enfants !</Text>
+          <Text style={[styles.presentationText]} >Bienvenue !</Text>
           <Text style={[styles.presentationText, { fontSize: 16, }]}>Vous pouvez rechercher un livre par son nom.</Text>
         </View>
         <SearchBox onChangeText={setSearchText} onSubmitEditing={navigateToBookList} value={searchText} ></SearchBox>
