@@ -1,6 +1,6 @@
 const initialState = {
     searchText: null,
-    dataBooks: {}
+    dataBooks: null
 };
 
 function bookReducer(state = initialState, action) {
@@ -13,7 +13,8 @@ function bookReducer(state = initialState, action) {
             }
         case 'UPDATE_DATABOOKS':
             return {
-                ...state
+                ...state,
+                dataBooks: action.value
             }
         default:
             return state

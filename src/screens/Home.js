@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { ThemeProvider, Button } from 'react-native-elements';
 import SearchBox from '../components/SearchBox';
 
 function Home(props) {
 
-  const [searchText, setSearchText] = useState();
-
-  navigateToBookList = (text) => {
-    props.navigation.navigate("BookList", { params: { searchName: text } })
+  navigateToBookList = () => {
+    props.navigation.navigate("BookList")
   }
 
   const styles = StyleSheet.create({
@@ -41,10 +39,10 @@ function Home(props) {
           <Text style={[styles.presentationText, { fontSize: 16, }]}>Vous pouvez rechercher un livre par son nom.</Text>
         </View>
         <SearchBox />
-        <Button buttonStyle={styles.searchButton} title="Rechercher" onPress={() => navigateToBookList(searchText)}></Button>
+        <Button buttonStyle={styles.searchButton} title="Rechercher" onPress={navigateToBookList}></Button>
       </View>
     </ThemeProvider >
   )
 }
 
-export default Home;
+export default Home

@@ -43,7 +43,7 @@ function SearchBox(props) {
 
 const mapStateToProps = (state) => {
     return {
-        searchText: state.searchText,
+        searchText: state.bookReducer.searchText,
     }
 }
 

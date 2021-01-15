@@ -1,5 +1,13 @@
-import { createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import bookReducer from './reducers/bookReducer';
+import thunk from 'redux-thunk';
 
-let store = createStore(bookReducer);
+
+const middleware = [
+    thunk
+];
+let store = createStore(combineReducers({ bookReducer }),
+    applyMiddleware(...middleware),
+);
+
 export default store;

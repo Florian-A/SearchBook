@@ -1,48 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { View, ScrollView, Image } from 'react-native';
 import { ThemeProvider, ListItem } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { getBookDatas, resetBookDatas } from "../actions/bookAction";
 
 function BookList(props) {
 
-  const [datas, setDatas] = useState(null);
-
-  getDatas = (searchText) => {
-    if (!datas !== null) {
-      fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchText}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          },
-          body: this.query,
-        }
-      )
-        .then(result => result.json())
-        .then(result =>
-          JSON.parse(JSON.stringify(result))
-        )
-        .then(result => {
-          setDatas(() => (result))
-        }
-        )
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-
-  }
+  useEffect(() => {
+    return () => { props.resetBookDatas()}
+  });
 
   viewBook = () => {
-    if (datas !== null) {
+    if (props.dataBooks !== null) {
+      console.log("DEBUG")
+      console.log(props.dataBooks)
+      console.log("DEBUG")
       return (
         <View>
           {
-            datas.items.map((book, i) => (
-
+            props.dataBooks.items.map((book, i) => (
               <ListItem key={i} bottomDivider>
                 <Image
                   source={{ uri: book.volumeInfo.imageLinks.thumbnail }}
@@ -53,16 +30,13 @@ function BookList(props) {
                   <ListItem.Subtitle>{'Editeur: ' + book.volumeInfo.publisher + ' Publication: ' + book.volumeInfo.publishedDate}</ListItem.Subtitle>
                 </ListItem.Content>
               </ListItem>
-
-
             ))
           }
         </View>
       )
     }
     else {
-      console.log(props)
-      getDatas(props.searchText);
+      props.getBookDatas(props.searchText);
     }
   }
 
@@ -80,13 +54,14 @@ function BookList(props) {
 
 const mapStateToProps = (state) => {
   return {
-      searchText: state.searchText,
+    searchText: state.bookReducer.searchText,
+    dataBooks: state.bookReducer.dataBooks
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-      { }, dispatch
+    { getBookDatas, resetBookDatas }, dispatch
   )
 }
 
