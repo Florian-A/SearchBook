@@ -7,6 +7,7 @@ import store from './src/store';
 
 import Home from './src/screens/Home';
 import BookList from './src/screens/BookList';
+import BookDetails from "./src/screens/BookDetails";
 
 export default function App() {
 
@@ -17,8 +18,9 @@ export default function App() {
       <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Home" component={Home} options={{ title: 'Accueil', }} />
           <Stack.Screen name="BookList" options={{ title: 'Liste des livres', }} component={BookList} />
+          <Stack.Screen name="BookDetails" options={{ title: 'Détails du livre', }} component={BookDetails} />
         </Stack.Navigator>
       </NavigationContainer>
       </Provider>

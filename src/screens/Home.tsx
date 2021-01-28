@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { ThemeProvider, Button } from "react-native-elements";
 import SearchBox from "../components/SearchBox";
 
-function Home(props) {
+function Home(props:any) {
   const navigateToBookList = () => {
     props.navigation.navigate("BookList");
   };
