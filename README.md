@@ -28,6 +28,14 @@ Pour lancer l'application sur les plateformes différentes à la racine du proje
 
 # Résultat :
 
+| Application Android  |
+| - |
+| ![android](./conception/android.gif) |
+
+| Application iOS  |
+| - |
+| ![ios](./conception/ios.png) |
+
 | Navigateur web  |
 | - |
 | ![web](./conception/chrome.png) |
@@ -35,11 +43,3 @@ Pour lancer l'application sur les plateformes différentes à la racine du proje
 | Application ordinateur de bureau (Electron)  |
 | - |
 | ![electron](./conception/electron.png) |
-
-| Application Android  |
-| - |
-| ![android](./conception/android.png) |
-
-| Application iOS  |
-| - |
-| ![ios](./conception/ios.png) |
