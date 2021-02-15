@@ -1,34 +1,34 @@
 {
-  "expo": {
-    "name": "search-books",
-    "slug": "search-books",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./src/assets/images/icon.png",
-    "scheme": "myapp",
-    "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./src/assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./src/assets/images/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+    "expo": {
+      "name": "search-books",
+      "slug": "search-books-slug",
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./src/assets/images/icon.png",
+      "scheme": "myapp",
+      "userInterfaceStyle": "automatic",
+      "splash": {
+        "image": "./src/assets/images/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      },
+      "updates": {
+        "fallbackToCacheTimeout": 0
+      },
+      "assetBundlePatterns": [
+        "**/*"
+      ],
+      "ios": {
+        "bundleIdentifier": "com.expo.searchbooks",
+        "buildNumber": "1.0.0"
+      },
+      "android": {
+        "package": "com.expo.searchbooks",
+        "versionCode": 1
+      },
+      "web": {
+        "favicon": "./src/assets/images/favicon.png"
       }
-    },
-    "web": {
-      "favicon": "./src/assets/images/favicon.png"
     }
   }
-}
+  
