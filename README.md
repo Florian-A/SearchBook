@@ -1,6 +1,6 @@
 # Search Book
 
-Preuve de concepte d'une application multiplateforme (Android, iPhone, web, ordinateur de bureau) de recherche de livres.
+Preuve de concept d'une application multiplateforme (Android, iPhone, web, ordinateur de bureau) de recherche de livres.
 
 ## Couche technique :
 
